@@ -16,6 +16,7 @@
 		70DD7DEE1B72C7FB00F5835F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70DD7DED1B72C7FB00F5835F /* Images.xcassets */; };
 		70DD7DF11B72C7FB00F5835F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70DD7DEF1B72C7FB00F5835F /* LaunchScreen.xib */; };
 		70DD7DFD1B72C7FB00F5835F /* MGDProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DFC1B72C7FB00F5835F /* MGDProjectTests.m */; };
+		70DD7E071B73CF8000F5835F /* city_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DD7E061B73CF8000F5835F /* city_2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		70DD7DF61B72C7FB00F5835F /* MGDProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGDProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DD7DFB1B72C7FB00F5835F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DD7DFC1B72C7FB00F5835F /* MGDProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGDProjectTests.m; sourceTree = "<group>"; };
+		70DD7E061B73CF8000F5835F /* city_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = city_2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		70DD7DDA1B72C7FB00F5835F /* MGDProject */ = {
 			isa = PBXGroup;
 			children = (
+				70DD7E061B73CF8000F5835F /* city_2.png */,
 				70DD7DDF1B72C7FB00F5835F /* AppDelegate.h */,
 				70DD7DE01B72C7FB00F5835F /* AppDelegate.m */,
 				70DD7DE21B72C7FB00F5835F /* GameScene.h */,
@@ -209,6 +212,7 @@
 			files = (
 				70DD7DF11B72C7FB00F5835F /* LaunchScreen.xib in Resources */,
 				70DD7DEE1B72C7FB00F5835F /* Images.xcassets in Resources */,
+				70DD7E071B73CF8000F5835F /* city_2.png in Resources */,
 				70DD7DE61B72C7FB00F5835F /* GameScene.sks in Resources */,
 				70DD7DEC1B72C7FB00F5835F /* Main.storyboard in Resources */,
 			);

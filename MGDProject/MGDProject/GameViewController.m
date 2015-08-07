@@ -45,6 +45,7 @@
     GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
+    
     // Present the scene.
     [skView presentScene:scene];
 }
