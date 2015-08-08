@@ -157,6 +157,9 @@ static const uint32_t edgeCategory = 0x1 << 3;
         SKAction *actionMove = [SKAction moveTo:location duration:2.0];
         [dude runAction:actionMove];
         
+        SKAction *playFootsteps = [SKAction playSoundFileNamed:@"footsteps.wav" waitForCompletion:YES];
+        [dude runAction: [SKAction repeatAction:playFootsteps count:actionMove.duration]];
+        
 //        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"dude"];
 //        
 //        sprite.xScale = 0.5;

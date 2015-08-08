@@ -19,6 +19,7 @@
 		70DD7E091B75A75100F5835F /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DD7E081B75A75100F5835F /* background.png */; };
 		70DD7E0B1B7646A100F5835F /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = 70DD7E0A1B7646A100F5835F /* background1.png */; };
 		70DD7E111B76743E00F5835F /* zombiesound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 70DD7E101B76743E00F5835F /* zombiesound.wav */; };
+		70DD7E131B76C13800F5835F /* footsteps.wav in Resources */ = {isa = PBXBuildFile; fileRef = 70DD7E121B76C13800F5835F /* footsteps.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		70DD7E081B75A75100F5835F /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		70DD7E0A1B7646A100F5835F /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
 		70DD7E101B76743E00F5835F /* zombiesound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = zombiesound.wav; sourceTree = "<group>"; };
+		70DD7E121B76C13800F5835F /* footsteps.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = footsteps.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		70DD7DDA1B72C7FB00F5835F /* MGDProject */ = {
 			isa = PBXGroup;
 			children = (
+				70DD7E121B76C13800F5835F /* footsteps.wav */,
 				70DD7E101B76743E00F5835F /* zombiesound.wav */,
 				70DD7E0A1B7646A100F5835F /* background1.png */,
 				70DD7E081B75A75100F5835F /* background.png */,
@@ -216,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70DD7E131B76C13800F5835F /* footsteps.wav in Resources */,
 				70DD7DF11B72C7FB00F5835F /* LaunchScreen.xib in Resources */,
 				70DD7E091B75A75100F5835F /* background.png in Resources */,
 				70DD7DEE1B72C7FB00F5835F /* Images.xcassets in Resources */,
