@@ -16,7 +16,7 @@ static const uint32_t edgeCategory = 0x1 << 3;
 @implementation GameScene
 {
     SKSpriteNode *sprite, *dude, *zombie, *cabinet;
-    
+
 }
 
 //-(void)didMoveToView:(SKView *)view {
@@ -112,8 +112,6 @@ static const uint32_t edgeCategory = 0x1 << 3;
         bgImage.xScale = 1.75;
         bgImage.yScale = 1.75;
         bgImage.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        //bgImage.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
-        
         
         [self addChild:bgImage];
         
@@ -127,6 +125,7 @@ static const uint32_t edgeCategory = 0x1 << 3;
         [self addZombie:size];
         
         [self addCabinet:size];
+        
 
     }
     return self;
@@ -145,7 +144,7 @@ static const uint32_t edgeCategory = 0x1 << 3;
     
     if (firstBody.categoryBitMask == zombieCategory) {
         SKAction *playZombieSound = [SKAction playSoundFileNamed:@"zombiesound.wav" waitForCompletion:NO];
-        [sprite runAction:playZombieSound];
+        [dude runAction:playZombieSound];
     }
 }
 
@@ -155,26 +154,29 @@ static const uint32_t edgeCategory = 0x1 << 3;
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         
-        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"dude"];
+        SKAction *actionMove = [SKAction moveTo:location duration:2.0];
+        [dude runAction:actionMove];
         
-        sprite.xScale = 0.5;
-        sprite.yScale = 0.5;
-        sprite.position = location;
-        sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:dude.size];
-        sprite.physicsBody.dynamic = YES;
-        sprite.physicsBody.affectedByGravity = NO;
-        sprite.physicsBody.friction = 1;
-        sprite.physicsBody.linearDamping = 0;
-        sprite.physicsBody.restitution = 0;
-        sprite.physicsBody.categoryBitMask = mainCategory;
-        sprite.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory | edgeCategory;
-        sprite.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory | edgeCategory;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
+//        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"dude"];
+//        
+//        sprite.xScale = 0.5;
+//        sprite.yScale = 0.5;
+//        sprite.position = location;
+//        sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:dude.size];
+//        sprite.physicsBody.dynamic = YES;
+//        sprite.physicsBody.affectedByGravity = NO;
+//        sprite.physicsBody.friction = 1;
+//        sprite.physicsBody.linearDamping = 0;
+//        sprite.physicsBody.restitution = 0;
+//        sprite.physicsBody.categoryBitMask = mainCategory;
+//        sprite.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory | edgeCategory;
+//        sprite.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory | edgeCategory;
+//        
+//        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
+//        
+//        [sprite runAction:[SKAction repeatActionForever:action]];
+//        
+//        [self addChild:sprite];
         
         NSLog(@"position: %@", NSStringFromCGPoint(location));
     }
