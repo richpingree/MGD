@@ -93,6 +93,7 @@ static const uint32_t edgeCategory = 0x1 << 3;
         
         [self addChild:bgImage];
         
+        //world physics
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
         self.physicsBody.categoryBitMask = edgeCategory;
         self.physicsWorld.contactDelegate = self;
