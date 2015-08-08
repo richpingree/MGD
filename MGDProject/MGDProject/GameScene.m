@@ -19,28 +19,6 @@ static const uint32_t edgeCategory = 0x1 << 3;
 
 }
 
-//-(void)didMoveToView:(SKView *)view {
-//    /* Setup your scene here */
-////    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-////    
-////    myLabel.text = @"Hello, World!";
-////    myLabel.fontSize = 65;
-////    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-////                                   CGRectGetMidY(self.frame));
-////    
-////    [self addChild:myLabel];
-//    
-//    SKSpriteNode *bgImage =[SKSpriteNode spriteNodeWithImageNamed:@"background.png"];
-//    bgImage.xScale = 0.5;
-//    bgImage.yScale = 0.5;
-//    bgImage.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-//    
-//    [self addChild:bgImage];
-//    
-//    //add nodes
-//    
-//    
-//}
 
 //add main character
 -(void) addDude:(CGSize)size{
@@ -95,8 +73,8 @@ static const uint32_t edgeCategory = 0x1 << 3;
     cabinet.physicsBody.linearDamping = 0;
     cabinet.physicsBody.restitution = 0;
     cabinet.physicsBody.categoryBitMask = cabinetCategory;
-    cabinet.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory;
-    cabinet.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory;
+    //cabinet.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory;
+    //cabinet.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory;
 
     
     
@@ -141,7 +119,7 @@ static const uint32_t edgeCategory = 0x1 << 3;
     }else{
         firstBody = contact.bodyA;
     }
-    
+    //collision with zombie plays sound effect
     if (firstBody.categoryBitMask == zombieCategory) {
         SKAction *playZombieSound = [SKAction playSoundFileNamed:@"zombiesound.wav" waitForCompletion:NO];
         [dude runAction:playZombieSound];
@@ -154,34 +132,16 @@ static const uint32_t edgeCategory = 0x1 << 3;
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         
+        //moves main character to clicked location
         SKAction *actionMove = [SKAction moveTo:location duration:2.0];
         [dude runAction:actionMove];
         
+        //plays footsteps sound while main character is moving
         SKAction *playFootsteps = [SKAction playSoundFileNamed:@"footsteps.wav" waitForCompletion:YES];
         [dude runAction: [SKAction repeatAction:playFootsteps count:actionMove.duration]];
         
-//        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"dude"];
-//        
-//        sprite.xScale = 0.5;
-//        sprite.yScale = 0.5;
-//        sprite.position = location;
-//        sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:dude.size];
-//        sprite.physicsBody.dynamic = YES;
-//        sprite.physicsBody.affectedByGravity = NO;
-//        sprite.physicsBody.friction = 1;
-//        sprite.physicsBody.linearDamping = 0;
-//        sprite.physicsBody.restitution = 0;
-//        sprite.physicsBody.categoryBitMask = mainCategory;
-//        sprite.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory | edgeCategory;
-//        sprite.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory | edgeCategory;
-//        
-//        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-//        
-//        [sprite runAction:[SKAction repeatActionForever:action]];
-//        
-//        [self addChild:sprite];
         
-        NSLog(@"position: %@", NSStringFromCGPoint(location));
+        //NSLog(@"position: %@", NSStringFromCGPoint(location));
     }
 }
 
