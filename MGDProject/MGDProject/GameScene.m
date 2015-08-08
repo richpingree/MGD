@@ -21,7 +21,9 @@
 //    
 //    [self addChild:myLabel];
     
-    SKSpriteNode *bgImage =[SKSpriteNode spriteNodeWithImageNamed:@"city_2.png"];
+    SKSpriteNode *bgImage =[SKSpriteNode spriteNodeWithImageNamed:@"background.png"];
+    bgImage.xScale = 0.5;
+    bgImage.yScale = 0.5;
     bgImage.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     
     [self addChild:bgImage];
