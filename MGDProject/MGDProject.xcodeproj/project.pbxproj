@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		700155351B7C4D3D002DB978 /* name.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 700155341B7C4D3D002DB978 /* name.atlas */; };
 		70DD7DDE1B72C7FB00F5835F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DDD1B72C7FB00F5835F /* main.m */; };
 		70DD7DE11B72C7FB00F5835F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE01B72C7FB00F5835F /* AppDelegate.m */; };
 		70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE31B72C7FB00F5835F /* GameScene.m */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		700155341B7C4D3D002DB978 /* name.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = name.atlas; sourceTree = "<group>"; };
 		70DD7DD81B72C7FB00F5835F /* MGDProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DD7DDC1B72C7FB00F5835F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DD7DDD1B72C7FB00F5835F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,9 +96,10 @@
 		70DD7DDA1B72C7FB00F5835F /* MGDProject */ = {
 			isa = PBXGroup;
 			children = (
+				700155341B7C4D3D002DB978 /* name.atlas */,
+				70DD7E0A1B7646A100F5835F /* background1.png */,
 				70DD7E121B76C13800F5835F /* footsteps.wav */,
 				70DD7E101B76743E00F5835F /* zombiesound.wav */,
-				70DD7E0A1B7646A100F5835F /* background1.png */,
 				70DD7E081B75A75100F5835F /* background.png */,
 				70DD7DDF1B72C7FB00F5835F /* AppDelegate.h */,
 				70DD7DE01B72C7FB00F5835F /* AppDelegate.m */,
@@ -227,6 +230,7 @@
 				70DD7DE61B72C7FB00F5835F /* GameScene.sks in Resources */,
 				70DD7E0B1B7646A100F5835F /* background1.png in Resources */,
 				70DD7DEC1B72C7FB00F5835F /* Main.storyboard in Resources */,
+				700155351B7C4D3D002DB978 /* name.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +448,7 @@
 				70DD7E021B72C7FB00F5835F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		70DD7E031B72C7FB00F5835F /* Build configuration list for PBXNativeTarget "MGDProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +457,7 @@
 				70DD7E051B72C7FB00F5835F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
