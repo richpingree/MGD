@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		700155351B7C4D3D002DB978 /* name.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 700155341B7C4D3D002DB978 /* name.atlas */; };
+		700155371B7D55AD002DB978 /* heartbeat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 700155361B7D55AD002DB978 /* heartbeat.wav */; };
 		70DD7DDE1B72C7FB00F5835F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DDD1B72C7FB00F5835F /* main.m */; };
 		70DD7DE11B72C7FB00F5835F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE01B72C7FB00F5835F /* AppDelegate.m */; };
 		70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE31B72C7FB00F5835F /* GameScene.m */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		700155341B7C4D3D002DB978 /* name.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = name.atlas; sourceTree = "<group>"; };
+		700155361B7D55AD002DB978 /* heartbeat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = heartbeat.wav; sourceTree = "<group>"; };
 		70DD7DD81B72C7FB00F5835F /* MGDProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DD7DDC1B72C7FB00F5835F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DD7DDD1B72C7FB00F5835F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		70DD7DDA1B72C7FB00F5835F /* MGDProject */ = {
 			isa = PBXGroup;
 			children = (
+				700155361B7D55AD002DB978 /* heartbeat.wav */,
 				700155341B7C4D3D002DB978 /* name.atlas */,
 				70DD7E0A1B7646A100F5835F /* background1.png */,
 				70DD7E121B76C13800F5835F /* footsteps.wav */,
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70DD7E131B76C13800F5835F /* footsteps.wav in Resources */,
+				700155371B7D55AD002DB978 /* heartbeat.wav in Resources */,
 				70DD7DF11B72C7FB00F5835F /* LaunchScreen.xib in Resources */,
 				70DD7E091B75A75100F5835F /* background.png in Resources */,
 				70DD7DEE1B72C7FB00F5835F /* Images.xcassets in Resources */,
@@ -382,6 +386,7 @@
 				INFOPLIST_FILE = MGDProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -392,6 +397,7 @@
 				INFOPLIST_FILE = MGDProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

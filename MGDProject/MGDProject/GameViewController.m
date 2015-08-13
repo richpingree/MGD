@@ -35,6 +35,7 @@
     [super viewDidLoad];
     
     //SKTextureAtlas *dude = [SKTextureAtlas atlasNamed:@"cabinet.png"];
+    
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;

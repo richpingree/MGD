@@ -12,10 +12,11 @@ static const uint32_t mainCategory = 0x1 << 0;
 static const uint32_t zombieCategory = 0x1 << 1;
 static const uint32_t cabinetCategory = 0x1 << 2;
 static const uint32_t edgeCategory = 0x1 << 3;
+static const uint32_t heartCategory = 0x1 << 4;
 
 @implementation GameScene
 {
-    SKSpriteNode *sprite, *dude, *zombie, *cabinet;
+    SKSpriteNode *heart, *dude, *zombie, *cabinet;
 
 }
 
@@ -26,7 +27,6 @@ static const uint32_t edgeCategory = 0x1 << 3;
     dude.xScale = 0.5;
     dude.yScale = 0.5;
     dude.position = CGPointMake(size.width/2, size.height/2);
-    //dude.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:dude.frame.size.width/2];
     dude.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:dude.size];
     dude.physicsBody.dynamic = YES;
     dude.physicsBody.affectedByGravity = NO;
@@ -47,7 +47,6 @@ static const uint32_t edgeCategory = 0x1 << 3;
     zombie.xScale = 0.5;
     zombie.yScale = 0.5;
     zombie.position = CGPointMake(size.width*.25, size.height*.25);
-    //zombie.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:zombie.frame.size.width/2];
     zombie.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:zombie.size];
     zombie.physicsBody.dynamic = YES;
     zombie.physicsBody.affectedByGravity = NO;
@@ -56,8 +55,8 @@ static const uint32_t edgeCategory = 0x1 << 3;
     zombie.physicsBody.restitution = 1;
     zombie.physicsBody.allowsRotation = NO;
     zombie.physicsBody.categoryBitMask = zombieCategory;
-    zombie.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory;
-    zombie.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory;
+    zombie.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory | heartCategory;
+    zombie.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory | heartCategory;
     
     [self addChild:zombie];
 }
@@ -67,7 +66,7 @@ static const uint32_t edgeCategory = 0x1 << 3;
     cabinet = [SKSpriteNode spriteNodeWithImageNamed:@"cabinet"];
     cabinet.xScale = 1.5;
     cabinet.yScale = 1.5;
-    cabinet.position = CGPointMake(size.width/2, 360);
+    cabinet.position = CGPointMake(size.width/1.5, 360);
     cabinet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:cabinet.size];
     cabinet.physicsBody.dynamic = YES;
     cabinet.physicsBody.affectedByGravity = NO;
@@ -78,14 +77,32 @@ static const uint32_t edgeCategory = 0x1 << 3;
     //cabinet.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory;
     //cabinet.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory;
 
-    
-    
     [self addChild:cabinet];
     
+}
+
+//add heart
+-(void) addHeart:(CGSize)size{
+    heart = [SKSpriteNode spriteNodeWithImageNamed:@"heart6"];
+    heart.xScale = 1.5;
+    heart.yScale = 1.5;
+    heart.position = CGPointMake(size.width/4, (size.height/4)*3);
+    heart.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:heart.size];
+    heart.physicsBody.dynamic = YES;
+    heart.physicsBody.affectedByGravity = NO;
+    heart.physicsBody.allowsRotation = NO;
+    heart.physicsBody.categoryBitMask = heartCategory;
+    heart.physicsBody.collisionBitMask = mainCategory | heartCategory;
+    heart.physicsBody.contactTestBitMask = mainCategory | heartCategory;
+    
+    [self addChild:heart];
 }
 //inits all nodes and background
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
+        
+        //preload texture atlas
+        //SKTextureAtlas *heart = [SKTextureAtlas atlasNamed:@"heart6.png"];
         
         //background image
         SKSpriteNode *bgImage =[SKSpriteNode spriteNodeWithImageNamed:@"background1.png"];
@@ -107,6 +124,8 @@ static const uint32_t edgeCategory = 0x1 << 3;
         
         [self addCabinet:size];
         
+        [self addHeart:size];
+        
 
     }
     return self;
@@ -126,6 +145,12 @@ static const uint32_t edgeCategory = 0x1 << 3;
     if (firstBody.categoryBitMask == zombieCategory) {
         SKAction *playZombieSound = [SKAction playSoundFileNamed:@"zombiesound.wav" waitForCompletion:NO];
         [dude runAction:playZombieSound];
+    }
+    
+    if (firstBody.categoryBitMask == heartCategory) {
+        SKAction *playHeartSound = [SKAction playSoundFileNamed:@"heartbeat.wav" waitForCompletion:NO];
+        [dude runAction:playHeartSound];
+        [heart removeFromParent];
     }
 }
 
