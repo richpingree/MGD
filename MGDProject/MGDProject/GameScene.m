@@ -103,6 +103,7 @@ static const uint32_t heartCategory = 0x1 << 4;
         
         //preload texture atlas
         //SKTextureAtlas *heart = [SKTextureAtlas atlasNamed:@"heart6.png"];
+        SKTextureAtlas *dudeAtlas = [SKTextureAtlas atlasNamed:@"dude"];
         
         //background image
         SKSpriteNode *bgImage =[SKSpriteNode spriteNodeWithImageNamed:@"background1.png"];
