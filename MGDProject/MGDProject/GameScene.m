@@ -17,13 +17,18 @@ static const uint32_t heartCategory = 0x1 << 4;
 @implementation GameScene
 {
     SKSpriteNode *heart, *dude, *zombie, *cabinet;
+    
+    SKTexture *temp;
+    NSArray * dudeWalkFrames;
 
 }
 
 
 //add main character
 -(void) addDude:(CGSize)size{
-    dude = [SKSpriteNode spriteNodeWithImageNamed:@"dude"];
+    //dude = [SKSpriteNode spriteNodeWithImageNamed:@"dude"];
+    SKTexture *dudeTemp = dudeWalkFrames[0];
+    dude =[SKSpriteNode spriteNodeWithTexture:dudeTemp];
     dude.xScale = 0.5;
     dude.yScale = 0.5;
     dude.position = CGPointMake(size.width/2, size.height/2);
@@ -39,6 +44,8 @@ static const uint32_t heartCategory = 0x1 << 4;
     dude.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory;
     
     [self addChild:dude];
+    
+    
 }
 
 //add zombie
@@ -101,9 +108,18 @@ static const uint32_t heartCategory = 0x1 << 4;
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
         
+        NSMutableArray *walkFrames = [NSMutableArray array];
+        
         //preload texture atlas
-        //SKTextureAtlas *heart = [SKTextureAtlas atlasNamed:@"heart6.png"];
         SKTextureAtlas *dudeAtlas = [SKTextureAtlas atlasNamed:@"dude"];
+        
+        NSInteger numImages = dudeAtlas.textureNames.count;
+        for (int i=1; i <= numImages; i++) {
+            NSString *textureName = [NSString stringWithFormat:@"dude%d", i];
+            temp = [dudeAtlas textureNamed:textureName];
+            [walkFrames addObject:temp];
+            dudeWalkFrames = walkFrames;
+        }
         
         //background image
         SKSpriteNode *bgImage =[SKSpriteNode spriteNodeWithImageNamed:@"background1.png"];
@@ -164,6 +180,11 @@ static const uint32_t heartCategory = 0x1 << 4;
         //moves main character to clicked location
         SKAction *actionMove = [SKAction moveTo:location duration:2.0];
         [dude runAction:actionMove];
+        
+        //animation for main character
+        SKAction *walking = [SKAction animateWithTextures:dudeWalkFrames timePerFrame:0.1f];
+        [dude runAction: [SKAction repeatAction:walking count:2]];
+        //[self walking];
         
         //plays footsteps sound while main character is moving
         SKAction *playFootsteps = [SKAction playSoundFileNamed:@"footsteps.wav" waitForCompletion:YES];
