@@ -254,6 +254,8 @@ static const uint32_t heartCategory = 0x1 << 4;
         //pause
         SKNode *node = [self nodeAtPoint:location];
         if ([node.name isEqualToString:@"pause"]) {
+            
+            //add and remove pause label
             if (self.scene.view.paused == true) {
                 [self addPauseLabel:self.size];
             } else if(self.scene.view.paused == false){
