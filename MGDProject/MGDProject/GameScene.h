@@ -9,5 +9,9 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
+{
+    
+}
 
+@property (readwrite) BOOL isPaused;
 @end

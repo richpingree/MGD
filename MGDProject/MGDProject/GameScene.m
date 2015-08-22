@@ -16,7 +16,8 @@ static const uint32_t heartCategory = 0x1 << 4;
 
 @implementation GameScene
 {
-    SKSpriteNode *heart, *dude, *zombie, *cabinet;
+    SKSpriteNode *heart, *dude, *zombie, *cabinet, *pauseBtn;
+    SKLabelNode *pauseLabel;
     
     SKTexture *temp;
     NSArray * dudeWalkFrames;
@@ -104,15 +105,50 @@ static const uint32_t heartCategory = 0x1 << 4;
     
     [self addChild:heart];
 }
+
+//add pause button
+-(void) addPauseBtn:(CGSize)size{
+    pauseBtn = [SKSpriteNode spriteNodeWithImageNamed:@"pause"];
+    pauseBtn.name = @"pause";
+    pauseBtn.xScale = .25;
+    pauseBtn.yScale = .25;
+    pauseBtn.position = CGPointMake(25, 25);
+    pauseBtn.zPosition = 1;
+    
+    [self addChild:pauseBtn];
+}
+
+-(void) addPauseLabel:(CGSize)size{
+    pauseLabel = [SKLabelNode labelNodeWithText:@"Game Paused!"];
+    pauseLabel.fontSize = 30;
+    pauseLabel.position = CGPointMake(size.height/2, size.width/2);
+    
+    [self addChild:pauseLabel];
+    
+}
+
+-(void)buttonPressed:(SKSpriteNode *)sender{
+    if (_isPaused) {
+        self.scene.view.paused = NO;
+        self.isPaused = NO;
+        
+    } else{
+        self.scene.view.paused = YES;
+        self.isPaused = YES;
+        
+    }
+}
 //inits all nodes and background
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
         
+        //Array for animation
         NSMutableArray *walkFrames = [NSMutableArray array];
         
         //preload texture atlas
         SKTextureAtlas *dudeAtlas = [SKTextureAtlas atlasNamed:@"dude"];
         
+        //gather all images for animation
         NSInteger numImages = dudeAtlas.textureNames.count;
         for (int i=1; i <= numImages; i++) {
             NSString *textureName = [NSString stringWithFormat:@"dude%d", i];
@@ -142,6 +178,9 @@ static const uint32_t heartCategory = 0x1 << 4;
         [self addCabinet:size];
         
         [self addHeart:size];
+        
+        [self addPauseBtn:size];
+        
         
 
     }
@@ -190,7 +229,22 @@ static const uint32_t heartCategory = 0x1 << 4;
         SKAction *playFootsteps = [SKAction playSoundFileNamed:@"footsteps.wav" waitForCompletion:YES];
         [dude runAction: [SKAction repeatAction:playFootsteps count:actionMove.duration]];
         
-        
+        //pause
+        SKNode *node = [self nodeAtPoint:location];
+        if ([node.name isEqualToString:@"pause"]) {
+            //[self buttonPressed:pauseBtn];
+            [self buttonPressed:pauseBtn];
+            [dude removeAllActions];
+        }
+//        if ([node.name isEqualToString:@"pause"]) {
+//            [pauseBtn removeFromParent];
+//            //[self addChild:playBtn:self.size];
+//            self.scene.view.paused = YES;
+//           
+//        }else if([node.name isEqualToString:@"play"] && self.isPaused){
+//            self.scene.view.paused = NO;
+//            //[playBtn removeFromParent];
+//        }
         //NSLog(@"position: %@", NSStringFromCGPoint(location));
     }
 }
