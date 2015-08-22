@@ -20,7 +20,7 @@ static const uint32_t heartCategory = 0x1 << 4;
     SKLabelNode *pauseLabel;
     
     SKTexture *temp;
-    NSArray * dudeWalkFrames;
+    NSArray *dudeWalkFrames, *changeToZombie;
 
 }
 
@@ -70,24 +70,24 @@ static const uint32_t heartCategory = 0x1 << 4;
 }
 
 //add cabinet
--(void) addCabinet:(CGSize)size{
-    cabinet = [SKSpriteNode spriteNodeWithImageNamed:@"cabinet"];
-    cabinet.xScale = 1.5;
-    cabinet.yScale = 1.5;
-    cabinet.position = CGPointMake(size.width/1.5, 360);
-    cabinet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:cabinet.size];
-    cabinet.physicsBody.dynamic = YES;
-    cabinet.physicsBody.affectedByGravity = NO;
-    cabinet.physicsBody.friction = 1;
-    cabinet.physicsBody.linearDamping = 0;
-    cabinet.physicsBody.restitution = 0;
-    cabinet.physicsBody.categoryBitMask = cabinetCategory;
-    //cabinet.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory;
-    //cabinet.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory;
-
-    [self addChild:cabinet];
-    
-}
+//-(void) addCabinet:(CGSize)size{
+//    cabinet = [SKSpriteNode spriteNodeWithImageNamed:@"cabinet"];
+//    cabinet.xScale = 1.5;
+//    cabinet.yScale = 1.5;
+//    cabinet.position = CGPointMake(size.width/1.5, 360);
+//    cabinet.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:cabinet.size];
+//    cabinet.physicsBody.dynamic = YES;
+//    cabinet.physicsBody.affectedByGravity = NO;
+//    cabinet.physicsBody.friction = 1;
+//    cabinet.physicsBody.linearDamping = 0;
+//    cabinet.physicsBody.restitution = 0;
+//    cabinet.physicsBody.categoryBitMask = cabinetCategory;
+//    //cabinet.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory;
+//    //cabinet.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory;
+//
+//    [self addChild:cabinet];
+//    
+//}
 
 //add heart
 -(void) addHeart:(CGSize)size{
@@ -122,6 +122,7 @@ static const uint32_t heartCategory = 0x1 << 4;
     pauseLabel = [SKLabelNode labelNodeWithText:@"Game Paused!"];
     pauseLabel.fontSize = 30;
     pauseLabel.position = CGPointMake(size.height/2, size.width/2);
+    pauseLabel.zPosition = 3.0;
     
     [self addChild:pauseLabel];
     
@@ -138,17 +139,20 @@ static const uint32_t heartCategory = 0x1 << 4;
         
     }
 }
+
 //inits all nodes and background
 -(id)initWithSize:(CGSize)size{
     if (self = [super initWithSize:size]) {
         
         //Array for animation
         NSMutableArray *walkFrames = [NSMutableArray array];
+        NSMutableArray *changeFrames = [NSMutableArray array];
         
         //preload texture atlas
         SKTextureAtlas *dudeAtlas = [SKTextureAtlas atlasNamed:@"dude"];
+        SKTextureAtlas *changeAtlas = [SKTextureAtlas atlasNamed:@"changing"];
         
-        //gather all images for animation
+        //gather dude images for walking animation
         NSInteger numImages = dudeAtlas.textureNames.count;
         for (int i=1; i <= numImages; i++) {
             NSString *textureName = [NSString stringWithFormat:@"dude%d", i];
@@ -157,10 +161,19 @@ static const uint32_t heartCategory = 0x1 << 4;
             dudeWalkFrames = walkFrames;
         }
         
+        //gather changing images for turning into Zombie
+        NSInteger numChangeImages = changeAtlas.textureNames.count;
+        for (int i=1; i <= numChangeImages; i++) {
+            NSString *changingTextureName = [NSString stringWithFormat:@"change%d", i];
+            temp = [changeAtlas textureNamed:changingTextureName];
+            [changeFrames addObject:temp];
+            changeToZombie = changeFrames;
+        }
+        
         //background image
-        SKSpriteNode *bgImage =[SKSpriteNode spriteNodeWithImageNamed:@"background1.png"];
-        bgImage.xScale = 1.75;
-        bgImage.yScale = 1.75;
+        SKSpriteNode *bgImage =[SKSpriteNode spriteNodeWithImageNamed:@"background.png"];
+        bgImage.xScale = .5;
+        bgImage.yScale = .5;
         bgImage.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
         
         [self addChild:bgImage];
@@ -175,7 +188,7 @@ static const uint32_t heartCategory = 0x1 << 4;
         
         [self addZombie:size];
         
-        [self addCabinet:size];
+        //[self addCabinet:size];
         
         [self addHeart:size];
         
@@ -201,6 +214,15 @@ static const uint32_t heartCategory = 0x1 << 4;
     if (firstBody.categoryBitMask == zombieCategory) {
         SKAction *playZombieSound = [SKAction playSoundFileNamed:@"zombiesound.wav" waitForCompletion:NO];
         [dude runAction:playZombieSound];
+        SKAction *change = [SKAction animateWithTextures:changeToZombie timePerFrame:0.05f];
+        [dude runAction:change];
+        
+        SKLabelNode *lostGame = [SKLabelNode labelNodeWithText:@"Game Over!"];
+        lostGame.fontSize = 100;
+        lostGame.zPosition = 3.0;
+        lostGame.position = CGPointMake(self.size.width/2, self.size.height/2);
+        [self addChild:lostGame];
+        //self.scene.view.paused = YES;
     }
     
     if (firstBody.categoryBitMask == heartCategory) {
@@ -232,19 +254,17 @@ static const uint32_t heartCategory = 0x1 << 4;
         //pause
         SKNode *node = [self nodeAtPoint:location];
         if ([node.name isEqualToString:@"pause"]) {
-            //[self buttonPressed:pauseBtn];
+            if (self.scene.view.paused == true) {
+                [self addPauseLabel:self.size];
+            } else if(self.scene.view.paused == false){
+                [pauseLabel removeFromParent];
+            }
+
             [self buttonPressed:pauseBtn];
             [dude removeAllActions];
+            
         }
-//        if ([node.name isEqualToString:@"pause"]) {
-//            [pauseBtn removeFromParent];
-//            //[self addChild:playBtn:self.size];
-//            self.scene.view.paused = YES;
-//           
-//        }else if([node.name isEqualToString:@"play"] && self.isPaused){
-//            self.scene.view.paused = NO;
-//            //[playBtn removeFromParent];
-//        }
+
         //NSLog(@"position: %@", NSStringFromCGPoint(location));
     }
 }

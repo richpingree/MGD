@@ -34,8 +34,6 @@
 {
     [super viewDidLoad];
     
-    //SKTextureAtlas *dude = [SKTextureAtlas atlasNamed:@"cabinet.png"];
-    
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
@@ -84,9 +82,10 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
+        return UIInterfaceOrientationMaskLandscapeLeft;
+    }
+    else {
+        return UIInterfaceOrientationMaskLandscape;
     }
 }
 
