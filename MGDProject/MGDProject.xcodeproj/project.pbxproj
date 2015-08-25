@@ -12,6 +12,9 @@
 		70A01D931B8682B900B680AD /* heart6.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A01D921B8682B900B680AD /* heart6.png */; };
 		70A01D951B868B8200B680AD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A01D941B868B8200B680AD /* pause.png */; };
 		70A01D971B89037000B680AD /* changing.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 70A01D961B89037000B680AD /* changing.atlas */; };
+		70A01D9A1B8C723200B680AD /* GameMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A01D991B8C723200B680AD /* GameMenuViewController.m */; };
+		70A01D9D1B8C724800B680AD /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A01D9C1B8C724800B680AD /* CreditsViewController.m */; };
+		70A01DA01B8C725700B680AD /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A01D9F1B8C725700B680AD /* InstructionsViewController.m */; };
 		70DD7DDE1B72C7FB00F5835F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DDD1B72C7FB00F5835F /* main.m */; };
 		70DD7DE11B72C7FB00F5835F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE01B72C7FB00F5835F /* AppDelegate.m */; };
 		70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE31B72C7FB00F5835F /* GameScene.m */; };
@@ -43,6 +46,12 @@
 		70A01D921B8682B900B680AD /* heart6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart6.png; sourceTree = "<group>"; };
 		70A01D941B868B8200B680AD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		70A01D961B89037000B680AD /* changing.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = changing.atlas; sourceTree = "<group>"; };
+		70A01D981B8C723200B680AD /* GameMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMenuViewController.h; sourceTree = "<group>"; };
+		70A01D991B8C723200B680AD /* GameMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMenuViewController.m; sourceTree = "<group>"; };
+		70A01D9B1B8C724800B680AD /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
+		70A01D9C1B8C724800B680AD /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
+		70A01D9E1B8C725700B680AD /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
+		70A01D9F1B8C725700B680AD /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
 		70DD7DD81B72C7FB00F5835F /* MGDProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DD7DDC1B72C7FB00F5835F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DD7DDD1B72C7FB00F5835F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -124,6 +133,12 @@
 				70DD7DED1B72C7FB00F5835F /* Images.xcassets */,
 				70DD7DEF1B72C7FB00F5835F /* LaunchScreen.xib */,
 				70DD7DDB1B72C7FB00F5835F /* Supporting Files */,
+				70A01D981B8C723200B680AD /* GameMenuViewController.h */,
+				70A01D991B8C723200B680AD /* GameMenuViewController.m */,
+				70A01D9B1B8C724800B680AD /* CreditsViewController.h */,
+				70A01D9C1B8C724800B680AD /* CreditsViewController.m */,
+				70A01D9E1B8C725700B680AD /* InstructionsViewController.h */,
+				70A01D9F1B8C725700B680AD /* InstructionsViewController.m */,
 			);
 			path = MGDProject;
 			sourceTree = "<group>";
@@ -264,8 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70A01D9A1B8C723200B680AD /* GameMenuViewController.m in Sources */,
 				70DD7DE91B72C7FB00F5835F /* GameViewController.m in Sources */,
+				70A01DA01B8C725700B680AD /* InstructionsViewController.m in Sources */,
 				70DD7DE11B72C7FB00F5835F /* AppDelegate.m in Sources */,
+				70A01D9D1B8C724800B680AD /* CreditsViewController.m in Sources */,
 				70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */,
 				70DD7DDE1B72C7FB00F5835F /* main.m in Sources */,
 			);
