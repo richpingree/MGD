@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface GameMenuViewController : UIViewController
+{
+    __weak IBOutlet UIButton *InstructionBtn;
+
+    __weak IBOutlet UIButton *PlayBtn;
+    __weak IBOutlet UIButton *CreditsBtn;
+}
+
 
 @end

@@ -14,10 +14,14 @@
 
 @implementation GameMenuViewController
 
+UIButton *InstructionBtn, *PlayBtn, *CreditsBtn;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -44,4 +48,12 @@
 }
 */
 
+- (IBAction)InstructionBtn:(id)sender {
+}
+
+- (IBAction)PlayBtn:(id)sender {
+}
+
+- (IBAction)Credits:(id)sender {
+}
 @end

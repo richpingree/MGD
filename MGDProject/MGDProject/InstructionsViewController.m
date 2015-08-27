@@ -17,11 +17,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    UIImage *howToPlayImage = [UIImage imageNamed:@"Instructions.png"];
+//    
+//    UIImageView *imageView = [[UIImageView alloc]initWithImage:howToPlayImage];
+//    imageView.frame =[[UIScreen mainScreen] bounds];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return UIInterfaceOrientationMaskLandscapeLeft;
+    }
+    else {
+        return UIInterfaceOrientationMaskLandscape;
+    }
 }
 
 /*

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		700155351B7C4D3D002DB978 /* dude.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 700155341B7C4D3D002DB978 /* dude.atlas */; };
 		700155371B7D55AD002DB978 /* heartbeat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 700155361B7D55AD002DB978 /* heartbeat.wav */; };
+		704B7A5F1B8E787B005D7791 /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B7A5E1B8E787B005D7791 /* Play.png */; };
+		704B7A611B8E7A71005D7791 /* HowToPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B7A601B8E7A71005D7791 /* HowToPlay.png */; };
+		704B7A631B8E7B2F005D7791 /* Credits.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B7A621B8E7B2F005D7791 /* Credits.png */; };
+		704B7A651B8E88C1005D7791 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B7A641B8E88C1005D7791 /* Logo.png */; };
+		704B7A671B8E9B3B005D7791 /* TitleImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B7A661B8E9B3B005D7791 /* TitleImage.png */; };
+		704B7A691B8EA4D9005D7791 /* Instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B7A681B8EA4D9005D7791 /* Instructions.png */; };
 		70A01D931B8682B900B680AD /* heart6.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A01D921B8682B900B680AD /* heart6.png */; };
 		70A01D951B868B8200B680AD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A01D941B868B8200B680AD /* pause.png */; };
 		70A01D971B89037000B680AD /* changing.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 70A01D961B89037000B680AD /* changing.atlas */; };
@@ -43,6 +49,12 @@
 /* Begin PBXFileReference section */
 		700155341B7C4D3D002DB978 /* dude.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = dude.atlas; sourceTree = "<group>"; };
 		700155361B7D55AD002DB978 /* heartbeat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = heartbeat.wav; sourceTree = "<group>"; };
+		704B7A5E1B8E787B005D7791 /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
+		704B7A601B8E7A71005D7791 /* HowToPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HowToPlay.png; sourceTree = "<group>"; };
+		704B7A621B8E7B2F005D7791 /* Credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Credits.png; sourceTree = "<group>"; };
+		704B7A641B8E88C1005D7791 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
+		704B7A661B8E9B3B005D7791 /* TitleImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TitleImage.png; sourceTree = "<group>"; };
+		704B7A681B8EA4D9005D7791 /* Instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions.png; sourceTree = "<group>"; };
 		70A01D921B8682B900B680AD /* heart6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart6.png; sourceTree = "<group>"; };
 		70A01D941B868B8200B680AD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		70A01D961B89037000B680AD /* changing.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = changing.atlas; sourceTree = "<group>"; };
@@ -113,6 +125,12 @@
 		70DD7DDA1B72C7FB00F5835F /* MGDProject */ = {
 			isa = PBXGroup;
 			children = (
+				704B7A681B8EA4D9005D7791 /* Instructions.png */,
+				704B7A661B8E9B3B005D7791 /* TitleImage.png */,
+				704B7A641B8E88C1005D7791 /* Logo.png */,
+				704B7A621B8E7B2F005D7791 /* Credits.png */,
+				704B7A601B8E7A71005D7791 /* HowToPlay.png */,
+				704B7A5E1B8E787B005D7791 /* Play.png */,
 				70A01D961B89037000B680AD /* changing.atlas */,
 				70A01D941B868B8200B680AD /* pause.png */,
 				70A01D921B8682B900B680AD /* heart6.png */,
@@ -256,10 +274,16 @@
 				70DD7DF11B72C7FB00F5835F /* LaunchScreen.xib in Resources */,
 				70DD7E091B75A75100F5835F /* background.png in Resources */,
 				70DD7DEE1B72C7FB00F5835F /* Images.xcassets in Resources */,
+				704B7A611B8E7A71005D7791 /* HowToPlay.png in Resources */,
 				70DD7E111B76743E00F5835F /* zombiesound.wav in Resources */,
 				70DD7DE61B72C7FB00F5835F /* GameScene.sks in Resources */,
+				704B7A651B8E88C1005D7791 /* Logo.png in Resources */,
+				704B7A691B8EA4D9005D7791 /* Instructions.png in Resources */,
 				70DD7E0B1B7646A100F5835F /* background1.png in Resources */,
+				704B7A671B8E9B3B005D7791 /* TitleImage.png in Resources */,
 				70DD7DEC1B72C7FB00F5835F /* Main.storyboard in Resources */,
+				704B7A631B8E7B2F005D7791 /* Credits.png in Resources */,
+				704B7A5F1B8E787B005D7791 /* Play.png in Resources */,
 				70A01D931B8682B900B680AD /* heart6.png in Resources */,
 				700155351B7C4D3D002DB978 /* dude.atlas in Resources */,
 			);

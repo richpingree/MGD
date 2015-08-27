@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>25FE7FD7-9BFD-4E99-A1FA-416DB59EA50C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>MGDProject</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>61233DAEA7C349E1EEEB3E8599AA231EA71588F8</key>
 		<string>https://github.com/richpingree/MGD.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MGDProject/MGDProject.xcodeproj/project.xcworkspace</string>
+	<string>MGDProject/MGDProject.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>61233DAEA7C349E1EEEB3E8599AA231EA71588F8</key>
