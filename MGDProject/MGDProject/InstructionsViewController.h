@@ -10,6 +10,10 @@
 
 @interface InstructionsViewController : UIViewController
 {
+    UIButton *back;
     
 }
+- (IBAction)back:(id)sender;
+
+
 @end

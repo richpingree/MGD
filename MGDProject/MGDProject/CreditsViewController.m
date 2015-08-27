@@ -17,6 +17,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //credits image
+    UIImage *credits = [UIImage imageNamed:@"CreditInfo.png"];
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:credits];
+    imageView.frame =[[UIScreen mainScreen] bounds];
+    
+    [self.view addSubview:imageView];
+    
+    back = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 50.0f, 30.0f)];
+    [back setTitle:@"Back" forState:UIControlStateNormal];
+    
+    [imageView addSubview:back];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,4 +58,6 @@
 }
 */
 
+- (IBAction)back:(id)sender {
+}
 @end

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CreditsViewController : UIViewController
-
+{
+    UIButton *back;
+}
+- (IBAction)back:(id)sender;
 @end

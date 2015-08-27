@@ -15,6 +15,7 @@
 		704B7A651B8E88C1005D7791 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B7A641B8E88C1005D7791 /* Logo.png */; };
 		704B7A671B8E9B3B005D7791 /* TitleImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B7A661B8E9B3B005D7791 /* TitleImage.png */; };
 		704B7A691B8EA4D9005D7791 /* Instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B7A681B8EA4D9005D7791 /* Instructions.png */; };
+		704B7A6D1B8FC247005D7791 /* CreditInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 704B7A6C1B8FC247005D7791 /* CreditInfo.png */; };
 		70A01D931B8682B900B680AD /* heart6.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A01D921B8682B900B680AD /* heart6.png */; };
 		70A01D951B868B8200B680AD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A01D941B868B8200B680AD /* pause.png */; };
 		70A01D971B89037000B680AD /* changing.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 70A01D961B89037000B680AD /* changing.atlas */; };
@@ -55,6 +56,7 @@
 		704B7A641B8E88C1005D7791 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		704B7A661B8E9B3B005D7791 /* TitleImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TitleImage.png; sourceTree = "<group>"; };
 		704B7A681B8EA4D9005D7791 /* Instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions.png; sourceTree = "<group>"; };
+		704B7A6C1B8FC247005D7791 /* CreditInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CreditInfo.png; sourceTree = "<group>"; };
 		70A01D921B8682B900B680AD /* heart6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart6.png; sourceTree = "<group>"; };
 		70A01D941B868B8200B680AD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		70A01D961B89037000B680AD /* changing.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = changing.atlas; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		70DD7DDA1B72C7FB00F5835F /* MGDProject */ = {
 			isa = PBXGroup;
 			children = (
+				704B7A6C1B8FC247005D7791 /* CreditInfo.png */,
 				704B7A681B8EA4D9005D7791 /* Instructions.png */,
 				704B7A661B8E9B3B005D7791 /* TitleImage.png */,
 				704B7A641B8E88C1005D7791 /* Logo.png */,
@@ -267,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				704B7A6D1B8FC247005D7791 /* CreditInfo.png in Resources */,
 				70DD7E131B76C13800F5835F /* footsteps.wav in Resources */,
 				700155371B7D55AD002DB978 /* heartbeat.wav in Resources */,
 				70A01D951B868B8200B680AD /* pause.png in Resources */,

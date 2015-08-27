@@ -17,10 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    UIImage *howToPlayImage = [UIImage imageNamed:@"Instructions.png"];
-//    
-//    UIImageView *imageView = [[UIImageView alloc]initWithImage:howToPlayImage];
-//    imageView.frame =[[UIScreen mainScreen] bounds];
+    UIImage *howToPlayImage = [UIImage imageNamed:@"Instructions.png"];
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:howToPlayImage];
+    imageView.frame =[[UIScreen mainScreen] bounds];
+    
+    [self.view addSubview:imageView];
+    
+    back = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 50.0f, 30.0f)];
+    [back setTitle:@"Back" forState:UIControlStateNormal];
+    
+    [imageView addSubview:back];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,4 +56,7 @@
 }
 */
 
+
+- (IBAction)back:(id)sender {
+}
 @end
