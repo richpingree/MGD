@@ -30,8 +30,8 @@ static const uint32_t heartCategory = 0x1 << 4;
     //dude = [SKSpriteNode spriteNodeWithImageNamed:@"dude"];
     SKTexture *dudeTemp = dudeWalkFrames[0];
     dude =[SKSpriteNode spriteNodeWithTexture:dudeTemp];
-    dude.xScale = 0.5;
-    dude.yScale = 0.5;
+    dude.xScale = 0.25;
+    dude.yScale = 0.25;
     dude.position = CGPointMake(size.width/2, size.height/2);
     dude.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:dude.size];
     dude.physicsBody.dynamic = YES;
@@ -52,8 +52,8 @@ static const uint32_t heartCategory = 0x1 << 4;
 //add zombie
 -(void) addZombie:(CGSize)size{
     zombie = [SKSpriteNode spriteNodeWithImageNamed:@"zombie"];
-    zombie.xScale = 0.5;
-    zombie.yScale = 0.5;
+    zombie.xScale = 0.25;
+    zombie.yScale = 0.25;
     zombie.position = CGPointMake(size.width*.25, size.height*.25);
     zombie.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:zombie.size];
     zombie.physicsBody.dynamic = YES;
@@ -92,8 +92,8 @@ static const uint32_t heartCategory = 0x1 << 4;
 //add heart
 -(void) addHeart:(CGSize)size{
     heart = [SKSpriteNode spriteNodeWithImageNamed:@"heart6"];
-    heart.xScale = 1.5;
-    heart.yScale = 1.5;
+    heart.xScale = 1.0;
+    heart.yScale = 1.0;
     heart.position = CGPointMake(size.width/4, (size.height/4)*3);
     heart.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:heart.size];
     heart.physicsBody.dynamic = YES;
@@ -173,7 +173,7 @@ static const uint32_t heartCategory = 0x1 << 4;
         //background image
         SKSpriteNode *bgImage =[SKSpriteNode spriteNodeWithImageNamed:@"background.png"];
         bgImage.xScale = .5;
-        bgImage.yScale = .5;
+        bgImage.yScale = .25;
         bgImage.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
         
         [self addChild:bgImage];
@@ -239,7 +239,7 @@ static const uint32_t heartCategory = 0x1 << 4;
         CGPoint location = [touch locationInNode:self];
         
         //moves main character to clicked location
-        SKAction *actionMove = [SKAction moveTo:location duration:2.0];
+        SKAction *actionMove = [SKAction moveTo:location duration:3.0];
         [dude runAction:actionMove];
         
         //animation for main character
