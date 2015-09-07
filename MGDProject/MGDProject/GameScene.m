@@ -94,7 +94,18 @@ static const uint32_t heartCategory = 0x1 << 4;
     heart = [SKSpriteNode spriteNodeWithImageNamed:@"heart6"];
     heart.xScale = 1.0;
     heart.yScale = 1.0;
-    heart.position = CGPointMake(size.width/4, (size.height/4)*3);
+    //determine where to spawn a heart
+    int minX = heart.size.width/2;
+    int maxX = self.frame.size.width - heart.size.width/2;
+    int rangeX = maxX - minX;
+    int actualX = (arc4random() % rangeX) + minX;
+    int minY = heart.size.height/2;
+    int maxY = self.frame.size.height - heart.size.height/2;
+    int rangeY = maxY - minY;
+    int actualY = (arc4random() % rangeY) + minY;
+    
+    heart.position = CGPointMake(actualX, actualY);
+    //heart.position = CGPointMake(size.width/4, (size.height/4)*3);
     heart.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:heart.size];
     heart.physicsBody.dynamic = YES;
     heart.physicsBody.affectedByGravity = NO;
@@ -139,6 +150,25 @@ static const uint32_t heartCategory = 0x1 << 4;
         
     }
 }
+
+-(void)addRandomHeart{
+    heart = [SKSpriteNode spriteNodeWithImageNamed:@"heart6"];
+    
+    //determine where to spawn a heart
+    int minX = heart.size.width/2;
+    int maxX = self.frame.size.width - heart.size.width/2;
+    int rangeX = maxX - minX;
+    int actualX = (arc4random() % rangeX) + minX;
+    int minY = heart.size.height/2;
+    int maxY = self.frame.size.height - heart.size.height/2;
+    int rangeY = maxY - minY;
+    int actualY = (arc4random() % rangeY) + minY;
+    
+    heart.position = CGPointMake(actualX, actualY);
+    [self addChild:heart];
+    
+}
+
 
 //inits all nodes and background
 -(id)initWithSize:(CGSize)size{
@@ -229,6 +259,7 @@ static const uint32_t heartCategory = 0x1 << 4;
         SKAction *playHeartSound = [SKAction playSoundFileNamed:@"heartbeat.wav" waitForCompletion:NO];
         [dude runAction:playHeartSound];
         [heart removeFromParent];
+        [self addHeart:self.view.frame.size];
     }
 }
 
@@ -271,8 +302,25 @@ static const uint32_t heartCategory = 0x1 << 4;
     }
 }
 
+-(void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
+    
+    self.lastSpawnTimeInterval += timeSinceLast;
+    if (self.lastSpawnTimeInterval > 1) {
+        self.lastSpawnTimeInterval = 0;
+        //[self addRandomHeart];
+    }
+}
+
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
+    self.lastUpdateTimeInterval = currentTime;
+    if (timeSinceLast > 1) {
+        timeSinceLast = 1.0/60.0;
+        self.lastUpdateTimeInterval = currentTime;
+    }
+    
+    [self updateWithTimeSinceLastUpdate:timeSinceLast];
 }
 
 @end

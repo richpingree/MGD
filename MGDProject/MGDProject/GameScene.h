@@ -14,4 +14,6 @@
 }
 
 @property (readwrite) BOOL isPaused;
+@property (nonatomic) NSTimeInterval lastSpawnTimeInterval;
+@property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
 @end
