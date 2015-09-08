@@ -20,7 +20,7 @@ static const uint32_t heartCategory = 0x1 << 4;
     SKLabelNode *pauseLabel;
     
     SKTexture *temp;
-    NSArray *dudeWalkFrames, *changeToZombie;
+    NSArray *dudeWalkFrames, *changeToZombie, *zombieWalkFrames;
 
 }
 
@@ -51,7 +51,9 @@ static const uint32_t heartCategory = 0x1 << 4;
 
 //add zombie
 -(void) addZombie:(CGSize)size{
-    zombie = [SKSpriteNode spriteNodeWithImageNamed:@"zombie"];
+    //zombie = [SKSpriteNode spriteNodeWithImageNamed:@"zombie"];
+    SKTexture *zombieTemp = zombieWalkFrames[0];
+    zombie = [SKSpriteNode spriteNodeWithTexture:zombieTemp];
     zombie.xScale = 0.25;
     zombie.yScale = 0.25;
     zombie.position = CGPointMake(size.width*.25, size.height*.25);
@@ -63,8 +65,8 @@ static const uint32_t heartCategory = 0x1 << 4;
     zombie.physicsBody.restitution = 1;
     zombie.physicsBody.allowsRotation = NO;
     zombie.physicsBody.categoryBitMask = zombieCategory;
-    zombie.physicsBody.collisionBitMask = mainCategory | zombieCategory | cabinetCategory | heartCategory;
-    zombie.physicsBody.contactTestBitMask = mainCategory | zombieCategory | cabinetCategory | heartCategory;
+    zombie.physicsBody.collisionBitMask = mainCategory | zombieCategory;
+    zombie.physicsBody.contactTestBitMask = mainCategory | zombieCategory;
     
     [self addChild:zombie];
 }
@@ -177,10 +179,12 @@ static const uint32_t heartCategory = 0x1 << 4;
         //Array for animation
         NSMutableArray *walkFrames = [NSMutableArray array];
         NSMutableArray *changeFrames = [NSMutableArray array];
+        NSMutableArray *zombieFrames = [NSMutableArray array];
         
         //preload texture atlas
         SKTextureAtlas *dudeAtlas = [SKTextureAtlas atlasNamed:@"dude"];
         SKTextureAtlas *changeAtlas = [SKTextureAtlas atlasNamed:@"changing"];
+        SKTextureAtlas *zombieAtlas = [SKTextureAtlas atlasNamed:@"zombie"];
         
         //gather dude images for walking animation
         NSInteger numImages = dudeAtlas.textureNames.count;
@@ -198,6 +202,15 @@ static const uint32_t heartCategory = 0x1 << 4;
             temp = [changeAtlas textureNamed:changingTextureName];
             [changeFrames addObject:temp];
             changeToZombie = changeFrames;
+        }
+        
+        //gather zombie images for walking animation
+        NSInteger numZombieImages = zombieAtlas.textureNames.count;
+        for (int i=1; i <= numZombieImages; i++) {
+            NSString *zombieTextureName = [NSString stringWithFormat:@"zombie%d", i];
+            temp = [zombieAtlas textureNamed:zombieTextureName];
+            [zombieFrames addObject:temp];
+            zombieWalkFrames = zombieFrames;
         }
         
         //background image
@@ -275,13 +288,20 @@ static const uint32_t heartCategory = 0x1 << 4;
         
         //animation for main character
         SKAction *walking = [SKAction animateWithTextures:dudeWalkFrames timePerFrame:0.1f];
-        [dude runAction: [SKAction repeatAction:walking count:2]];
+        [dude runAction: [SKAction repeatAction:walking count:3]];
         //[self walking];
         
         //plays footsteps sound while main character is moving
         SKAction *playFootsteps = [SKAction playSoundFileNamed:@"footsteps.wav" waitForCompletion:YES];
         [dude runAction: [SKAction repeatAction:playFootsteps count:actionMove.duration]];
         
+        //moves zombie to clicked location
+        SKAction *zombieMove = [SKAction moveTo:location duration:10.0];
+        [zombie runAction:zombieMove];
+        
+        //animation for zombie
+        SKAction *zombieWalking = [SKAction animateWithTextures:zombieWalkFrames timePerFrame:0.1f];
+        [zombie runAction:[SKAction repeatAction:zombieWalking count:10]];
         //pause
         SKNode *node = [self nodeAtPoint:location];
         if ([node.name isEqualToString:@"pause"]) {
