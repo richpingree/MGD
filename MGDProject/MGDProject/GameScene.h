@@ -14,6 +14,7 @@
 }
 
 @property (readwrite) BOOL isPaused;
-@property (nonatomic) NSTimeInterval lastSpawnTimeInterval;
-@property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
+@property (strong, nonatomic) SKLabelNode *scoreLabel;
+@property (nonatomic) NSInteger score;
+
 @end

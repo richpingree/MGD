@@ -153,23 +153,6 @@ static const uint32_t heartCategory = 0x1 << 4;
     }
 }
 
--(void)addRandomHeart{
-    heart = [SKSpriteNode spriteNodeWithImageNamed:@"heart6"];
-    
-    //determine where to spawn a heart
-    int minX = heart.size.width/2;
-    int maxX = self.frame.size.width - heart.size.width/2;
-    int rangeX = maxX - minX;
-    int actualX = (arc4random() % rangeX) + minX;
-    int minY = heart.size.height/2;
-    int maxY = self.frame.size.height - heart.size.height/2;
-    int rangeY = maxY - minY;
-    int actualY = (arc4random() % rangeY) + minY;
-    
-    heart.position = CGPointMake(actualX, actualY);
-    [self addChild:heart];
-    
-}
 
 
 //inits all nodes and background
@@ -226,6 +209,16 @@ static const uint32_t heartCategory = 0x1 << 4;
         self.physicsBody.categoryBitMask = edgeCategory;
         self.physicsWorld.contactDelegate = self;
         
+        // Add Score Label
+        float margin = 10;
+        self.scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Times New Roman"];
+        self.scoreLabel.text = @"Score: 0";
+        self.scoreLabel.fontSize = 25;
+        self.scoreLabel.zPosition = 4;
+        self.scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+        self.scoreLabel.position = CGPointMake(margin, size.width/2);
+        [self addChild:self.scoreLabel];
+        
         //add nodes
         [self addDude:size];
         
@@ -271,6 +264,8 @@ static const uint32_t heartCategory = 0x1 << 4;
     if (firstBody.categoryBitMask == heartCategory) {
         SKAction *playHeartSound = [SKAction playSoundFileNamed:@"heartbeat.wav" waitForCompletion:NO];
         [dude runAction:playHeartSound];
+        self.score +=10;
+        [self.scoreLabel setText:[NSString stringWithFormat:@"Score: %ld", (long)self.score]];
         [heart removeFromParent];
         [self addHeart:self.view.frame.size];
     }
@@ -322,25 +317,10 @@ static const uint32_t heartCategory = 0x1 << 4;
     }
 }
 
--(void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
-    
-    self.lastSpawnTimeInterval += timeSinceLast;
-    if (self.lastSpawnTimeInterval > 1) {
-        self.lastSpawnTimeInterval = 0;
-        //[self addRandomHeart];
-    }
-}
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
-    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
-    self.lastUpdateTimeInterval = currentTime;
-    if (timeSinceLast > 1) {
-        timeSinceLast = 1.0/60.0;
-        self.lastUpdateTimeInterval = currentTime;
-    }
-    
-    [self updateWithTimeSinceLastUpdate:timeSinceLast];
+   
 }
 
 @end
