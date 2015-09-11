@@ -10,7 +10,7 @@
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
 {
-    
+
 }
 
 @property (readwrite) BOOL isPaused;

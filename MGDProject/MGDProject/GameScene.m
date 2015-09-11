@@ -7,6 +7,7 @@
 //
 
 #import "GameScene.h"
+#import "GameOverScene.h"
 
 static const uint32_t mainCategory = 0x1 << 0;
 static const uint32_t zombieCategory = 0x1 << 1;
@@ -153,6 +154,10 @@ static const uint32_t heartCategory = 0x1 << 4;
     }
 }
 
+-(NSInteger) finalScore{
+    return _score;
+}
+
 
 
 //inits all nodes and background
@@ -253,11 +258,17 @@ static const uint32_t heartCategory = 0x1 << 4;
         SKAction *change = [SKAction animateWithTextures:changeToZombie timePerFrame:0.05f];
         [dude runAction:change];
         
-        SKLabelNode *lostGame = [SKLabelNode labelNodeWithText:@"Game Over!"];
-        lostGame.fontSize = 100;
-        lostGame.zPosition = 3.0;
-        lostGame.position = CGPointMake(self.size.width/2, self.size.height/2);
-        [self addChild:lostGame];
+        //GameOver Scene
+        SKScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size];
+        SKTransition *transition = [SKTransition flipVerticalWithDuration:0.5];
+        
+        [self.view presentScene:gameOverScene transition:transition];
+        
+//        SKLabelNode *lostGame = [SKLabelNode labelNodeWithText:@"Game Over!"];
+//        lostGame.fontSize = 100;
+//        lostGame.zPosition = 3.0;
+//        lostGame.position = CGPointMake(self.size.width/2, self.size.height/2);
+//        [self addChild:lostGame];
         //self.scene.view.paused = YES;
     }
     

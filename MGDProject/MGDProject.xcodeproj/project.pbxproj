@@ -23,6 +23,7 @@
 		70A01D9D1B8C724800B680AD /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A01D9C1B8C724800B680AD /* CreditsViewController.m */; };
 		70A01DA01B8C725700B680AD /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A01D9F1B8C725700B680AD /* InstructionsViewController.m */; };
 		70B9F3191B9E85A700C5FCC7 /* zombie.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 70B9F3181B9E85A700C5FCC7 /* zombie.atlas */; };
+		70B9F31C1BA23F2F00C5FCC7 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B9F31B1BA23F2F00C5FCC7 /* GameOverScene.m */; };
 		70DD7DDE1B72C7FB00F5835F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DDD1B72C7FB00F5835F /* main.m */; };
 		70DD7DE11B72C7FB00F5835F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE01B72C7FB00F5835F /* AppDelegate.m */; };
 		70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE31B72C7FB00F5835F /* GameScene.m */; };
@@ -68,6 +69,8 @@
 		70A01D9E1B8C725700B680AD /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
 		70A01D9F1B8C725700B680AD /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
 		70B9F3181B9E85A700C5FCC7 /* zombie.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = zombie.atlas; sourceTree = "<group>"; };
+		70B9F31A1BA23F2F00C5FCC7 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		70B9F31B1BA23F2F00C5FCC7 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		70DD7DD81B72C7FB00F5835F /* MGDProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DD7DDC1B72C7FB00F5835F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DD7DDD1B72C7FB00F5835F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				70A01D9C1B8C724800B680AD /* CreditsViewController.m */,
 				70A01D9E1B8C725700B680AD /* InstructionsViewController.h */,
 				70A01D9F1B8C725700B680AD /* InstructionsViewController.m */,
+				70B9F31A1BA23F2F00C5FCC7 /* GameOverScene.h */,
+				70B9F31B1BA23F2F00C5FCC7 /* GameOverScene.m */,
 			);
 			path = MGDProject;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 				70DD7DE11B72C7FB00F5835F /* AppDelegate.m in Sources */,
 				70A01D9D1B8C724800B680AD /* CreditsViewController.m in Sources */,
 				70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */,
+				70B9F31C1BA23F2F00C5FCC7 /* GameOverScene.m in Sources */,
 				70DD7DDE1B72C7FB00F5835F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
