@@ -92,6 +92,7 @@ static const uint32_t heartCategory = 0x1 << 4;
 //    
 //}
 
+//Feature Two
 //add heart
 -(void) addHeart:(CGSize)size{
     heart = [SKSpriteNode spriteNodeWithImageNamed:@"heart6"];
@@ -153,11 +154,6 @@ static const uint32_t heartCategory = 0x1 << 4;
         
     }
 }
-
--(NSInteger) finalScore{
-    return _score;
-}
-
 
 
 //inits all nodes and background
@@ -251,6 +247,8 @@ static const uint32_t heartCategory = 0x1 << 4;
     }else{
         firstBody = contact.bodyA;
     }
+    
+    //Feature One
     //collision with zombie plays sound effect
     if (firstBody.categoryBitMask == zombieCategory) {
         SKAction *playZombieSound = [SKAction playSoundFileNamed:@"zombiesound.wav" waitForCompletion:NO];
@@ -258,20 +256,19 @@ static const uint32_t heartCategory = 0x1 << 4;
         SKAction *change = [SKAction animateWithTextures:changeToZombie timePerFrame:0.05f];
         [dude runAction:change];
         
+        
+        //Feature Three
         //GameOver Scene
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        [prefs setInteger:_score forKey:@"score"];
         SKScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size];
         SKTransition *transition = [SKTransition flipVerticalWithDuration:0.5];
         
         [self.view presentScene:gameOverScene transition:transition];
-        
-//        SKLabelNode *lostGame = [SKLabelNode labelNodeWithText:@"Game Over!"];
-//        lostGame.fontSize = 100;
-//        lostGame.zPosition = 3.0;
-//        lostGame.position = CGPointMake(self.size.width/2, self.size.height/2);
-//        [self addChild:lostGame];
-        //self.scene.view.paused = YES;
+
     }
     
+    //Feature Two
     if (firstBody.categoryBitMask == heartCategory) {
         SKAction *playHeartSound = [SKAction playSoundFileNamed:@"heartbeat.wav" waitForCompletion:NO];
         [dude runAction:playHeartSound];
@@ -301,6 +298,8 @@ static const uint32_t heartCategory = 0x1 << 4;
         SKAction *playFootsteps = [SKAction playSoundFileNamed:@"footsteps.wav" waitForCompletion:YES];
         [dude runAction: [SKAction repeatAction:playFootsteps count:actionMove.duration]];
         
+        
+        //Feature One
         //moves zombie to clicked location
         SKAction *zombieMove = [SKAction moveTo:location duration:10.0];
         [zombie runAction:zombieMove];
@@ -308,6 +307,7 @@ static const uint32_t heartCategory = 0x1 << 4;
         //animation for zombie
         SKAction *zombieWalking = [SKAction animateWithTextures:zombieWalkFrames timePerFrame:0.1f];
         [zombie runAction:[SKAction repeatAction:zombieWalking count:10]];
+        
         //pause
         SKNode *node = [self nodeAtPoint:location];
         if ([node.name isEqualToString:@"pause"]) {

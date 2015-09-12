@@ -13,6 +13,4 @@
     
 }
 
-@property (nonatomic)NSInteger *score;
-
 @end
