@@ -251,8 +251,8 @@ static const uint32_t heartCategory = 0x1 << 4;
     //Feature One
     //collision with zombie plays sound effect
     if (firstBody.categoryBitMask == zombieCategory) {
-        SKAction *playZombieSound = [SKAction playSoundFileNamed:@"zombiesound.wav" waitForCompletion:NO];
-        [dude runAction:playZombieSound];
+//        SKAction *playZombieSound = [SKAction playSoundFileNamed:@"zombiesound1.wav" waitForCompletion:NO];
+//        [dude runAction:playZombieSound];
         SKAction *change = [SKAction animateWithTextures:changeToZombie timePerFrame:0.05f];
         [dude runAction:change];
         
@@ -270,8 +270,8 @@ static const uint32_t heartCategory = 0x1 << 4;
     
     //Feature Two
     if (firstBody.categoryBitMask == heartCategory) {
-        SKAction *playHeartSound = [SKAction playSoundFileNamed:@"heartbeat.wav" waitForCompletion:NO];
-        [dude runAction:playHeartSound];
+//        SKAction *playHeartSound = [SKAction playSoundFileNamed:@"heartbeat.wav" waitForCompletion:NO];
+//        [dude runAction:playHeartSound];
         self.score +=10;
         [self.scoreLabel setText:[NSString stringWithFormat:@"Score: %ld", (long)self.score]];
         [heart removeFromParent];
@@ -295,7 +295,7 @@ static const uint32_t heartCategory = 0x1 << 4;
         //[self walking];
         
         //plays footsteps sound while main character is moving
-        SKAction *playFootsteps = [SKAction playSoundFileNamed:@"footsteps.wav" waitForCompletion:YES];
+        SKAction *playFootsteps = [SKAction playSoundFileNamed:@"footsteps1.wav" waitForCompletion:YES];
         [dude runAction: [SKAction repeatAction:playFootsteps count:actionMove.duration]];
         
         
