@@ -30,7 +30,8 @@
     // [ParseCrashReporting enable];
     //
     // Uncomment and fill in with your Parse credentials:
-    // [Parse setApplicationId:@"your_application_id" clientKey:@"your_client_key"];
+    [Parse setApplicationId:@"D7kvEeTWrgHDZzsYmR8drmLhjpftrvXq44CfmsFP"
+                  clientKey:@"N5J9WIFx05yaka3baIU8Rv4Le5KvvgTfcio16vY7"];
     //
     // If you are using Facebook, uncomment and add your FacebookAppID to your bundle's plist as
     // described here: https://developers.facebook.com/docs/getting-started/facebook-sdk-for-ios/
@@ -80,51 +81,6 @@
     
     return YES;
 
-//    //Use Local Datastore features or want to use cachePolicy
-//    [Parse enableLocalDatastore];
-//    
-//    // Parse credentials:
-//    [Parse setApplicationId:@"iwzGFJskUeY3kd999rtqLsTn3nGdQnbMytC9L5dG"
-//                  clientKey:@"HMILVIKqlmvSMBPbsEPNiH3ds0y7t3qmYdzQhtBM"];
-//    
-//    [PFUser enableAutomaticUser];
-//    
-//    PFACL *defaultACL = [PFACL ACL];
-//
-//    [defaultACL setPublicReadAccess:YES];
-//    return YES;
-//    
-//    if (application.applicationState != UIApplicationStateBackground) {
-//        // Track an app open here if we launch with a push, unless
-//        // "content_available" was used to trigger a background push (introduced in iOS 7).
-//        // In that case, we skip tracking here to avoid double counting the app-open.
-//        BOOL preBackgroundPush = ![application respondsToSelector:@selector(backgroundRefreshStatus)];
-//        BOOL oldPushHandlerOnly = ![self respondsToSelector:@selector(application:didReceiveRemoteNotification:fetchCompletionHandler:)];
-//        BOOL noPushPayload = ![launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-//        if (preBackgroundPush || oldPushHandlerOnly || noPushPayload) {
-//            [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-//        }
-//    }
-//    
-//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
-//    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-//        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-//                                                        UIUserNotificationTypeBadge |
-//                                                        UIUserNotificationTypeSound);
-//        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-//                                                                                 categories:nil];
-//        [application registerUserNotificationSettings:settings];
-//        [application registerForRemoteNotifications];
-//    } else
-//#endif
-//    {
-////        [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-////                                                         UIRemoteNotificationTypeAlert |
-////                                                         UIRemoteNotificationTypeSound)];
-//    }
-//    
-//    return YES;
-//
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

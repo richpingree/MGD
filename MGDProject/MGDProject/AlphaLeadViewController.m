@@ -1,37 +1,36 @@
 //
-//  LeaderboardViewController.m
+//  AlphaLeadViewController.m
 //  MGDProject
 //
-//  Created by Richard Pingree on 9/16/15.
+//  Created by Richard Pingree on 9/17/15.
 //  Copyright (c) 2015 Richard Pingree. All rights reserved.
 //
 
-#import "LeaderboardViewController.h"
+#import "AlphaLeadViewController.h"
 
 #import <Parse/Parse.h>
 
-@interface LeaderboardViewController ()
+
+@interface AlphaLeadViewController ()
 
 @end
 
-@implementation LeaderboardViewController
+@implementation AlphaLeadViewController
 
 @synthesize leaderTableView;
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     objectArray = [NSMutableArray new];
     
     [self performSelector:@selector(retrieveFromParse)];
-    
 }
-
 
 -(void) retrieveFromParse{
     PFQuery *retrieveObjects = [PFQuery queryWithClassName:@"Leaderboard"];
-    [retrieveObjects orderByDescending:@"Score"];
+    [retrieveObjects orderByAscending:@"Name"];
     
     [retrieveObjects findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if (!error) {
@@ -61,6 +60,8 @@
     }
     return cell;
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -47,6 +47,7 @@
 		70B9F3471BA8D3DC00C5FCC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B9F3461BA8D3DC00C5FCC7 /* Foundation.framework */; };
 		70B9F3491BAA422000C5FCC7 /* LeaderboardButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B9F3481BAA422000C5FCC7 /* LeaderboardButtonImage.png */; };
 		70B9F34C1BAA42FA00C5FCC7 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B9F34B1BAA42FA00C5FCC7 /* LeaderboardViewController.m */; };
+		70B9F34F1BAB876700C5FCC7 /* AlphaLeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B9F34E1BAB876700C5FCC7 /* AlphaLeadViewController.m */; };
 		70DD7DDE1B72C7FB00F5835F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DDD1B72C7FB00F5835F /* main.m */; };
 		70DD7DE11B72C7FB00F5835F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE01B72C7FB00F5835F /* AppDelegate.m */; };
 		70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE31B72C7FB00F5835F /* GameScene.m */; };
@@ -118,6 +119,8 @@
 		70B9F3481BAA422000C5FCC7 /* LeaderboardButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LeaderboardButtonImage.png; path = ../../../Desktop/LeaderboardButtonImage.png; sourceTree = "<group>"; };
 		70B9F34A1BAA42FA00C5FCC7 /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		70B9F34B1BAA42FA00C5FCC7 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
+		70B9F34D1BAB876700C5FCC7 /* AlphaLeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphaLeadViewController.h; sourceTree = "<group>"; };
+		70B9F34E1BAB876700C5FCC7 /* AlphaLeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlphaLeadViewController.m; sourceTree = "<group>"; };
 		70DD7DD81B72C7FB00F5835F /* MGDProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DD7DDC1B72C7FB00F5835F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DD7DDD1B72C7FB00F5835F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -266,6 +269,8 @@
 				70B9F31B1BA23F2F00C5FCC7 /* GameOverScene.m */,
 				70B9F34A1BAA42FA00C5FCC7 /* LeaderboardViewController.h */,
 				70B9F34B1BAA42FA00C5FCC7 /* LeaderboardViewController.m */,
+				70B9F34D1BAB876700C5FCC7 /* AlphaLeadViewController.h */,
+				70B9F34E1BAB876700C5FCC7 /* AlphaLeadViewController.m */,
 			);
 			path = MGDProject;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				70DD7DE11B72C7FB00F5835F /* AppDelegate.m in Sources */,
 				70A01D9D1B8C724800B680AD /* CreditsViewController.m in Sources */,
 				70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */,
+				70B9F34F1BAB876700C5FCC7 /* AlphaLeadViewController.m in Sources */,
 				70B9F31C1BA23F2F00C5FCC7 /* GameOverScene.m in Sources */,
 				70DD7DDE1B72C7FB00F5835F /* main.m in Sources */,
 			);

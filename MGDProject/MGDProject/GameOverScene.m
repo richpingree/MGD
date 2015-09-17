@@ -13,8 +13,11 @@
 
 
 @implementation GameOverScene
+
 {
     SKLabelNode *lostGame, *finalScore;
+    NSInteger score;
+    //UITextField *playerNameField;
 }
 
 
@@ -39,7 +42,7 @@
         
         
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-        NSInteger score = [prefs integerForKey:@"score"];
+        score = [prefs integerForKey:@"score"];
         
         NSString *scoreText = [NSString stringWithFormat:@"Score:%ld", (long)score];
         
@@ -62,19 +65,19 @@
 }
 
 -(void)didMoveToView:(SKView *)view{
-    UITextField *playerNameField = [[UITextField alloc]initWithFrame:CGRectMake(lostGame.position.x, lostGame.position.y - 100, 250, 60)];
-    playerNameField.center = self.view.center;
-    playerNameField.borderStyle = UITextBorderStyleRoundedRect;
-    playerNameField.textColor = [UIColor blackColor];
-    playerNameField.font = [UIFont systemFontOfSize:30.0];
-    playerNameField.placeholder = @"Enter Name";
-    playerNameField.backgroundColor = [UIColor whiteColor];
-    playerNameField.autocorrectionType = UITextAutocorrectionTypeYes;
-    playerNameField.keyboardType = UIKeyboardTypeDefault;
-    playerNameField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    playerNameField.delegate = self;
+    _playerNameField = [[UITextField alloc]initWithFrame:CGRectMake(lostGame.position.x, lostGame.position.y - 100, 250, 60)];
+    _playerNameField.center = self.view.center;
+    _playerNameField.borderStyle = UITextBorderStyleRoundedRect;
+    _playerNameField.textColor = [UIColor blackColor];
+    _playerNameField.font = [UIFont systemFontOfSize:30.0];
+    _playerNameField.placeholder = @"Enter Name";
+    _playerNameField.backgroundColor = [UIColor whiteColor];
+    _playerNameField.autocorrectionType = UITextAutocorrectionTypeYes;
+    _playerNameField.keyboardType = UIKeyboardTypeDefault;
+    _playerNameField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _playerNameField.delegate = self;
     
-    [self.view addSubview:playerNameField];
+    [self.view addSubview:_playerNameField];
 
 }
 
@@ -86,11 +89,29 @@
         
         SKNode *node = [self nodeAtPoint:location];
         if ([node.name isEqualToString:@"restartNode"]) {
+            PFObject *newScore = [PFObject objectWithClassName:@"Leaderboard"];
+            NSNumber *parseScore = [NSNumber numberWithInteger:score];
+            newScore[@"Name"] = _playerNameField.text;
+            newScore[@"Score"] = parseScore;
+            [newScore saveEventually:^(BOOL succeeded, NSError *error){
+                if (succeeded){
+                    SKScene *restartGame = [[GameScene alloc] initWithSize:self.size];
+                    SKTransition *transition = [SKTransition flipVerticalWithDuration:0.5];
+                    
+                    [self.view presentScene:restartGame transition:transition];
+                    [_playerNameField removeFromSuperview];
+                    
+                } else{
+                    //There was a problem, check error.description
+                    NSLog(@"Error sending Score");
+                    
+                }
+            }];
             
-            SKScene *restartGame = [[GameScene alloc] initWithSize:self.size];
-            SKTransition *transition = [SKTransition flipVerticalWithDuration:0.5];
-            
-            [self.view presentScene:restartGame transition:transition];
+//            SKScene *restartGame = [[GameScene alloc] initWithSize:self.size];
+//            SKTransition *transition = [SKTransition flipVerticalWithDuration:0.5];
+//            
+//            [self.view presentScene:restartGame transition:transition];
             
         }
         

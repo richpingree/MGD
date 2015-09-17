@@ -7,10 +7,12 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface GameOverScene : SKScene <UITextFieldDelegate>
 {
     
 }
-
+@property (nonatomic) IBOutlet UITextField *playerNameField;
 @end
