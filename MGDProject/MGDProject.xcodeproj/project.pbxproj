@@ -45,9 +45,10 @@
 		70B9F3431BA8D3CB00C5FCC7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B9F3421BA8D3CB00C5FCC7 /* CFNetwork.framework */; };
 		70B9F3451BA8D3D500C5FCC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B9F3441BA8D3D500C5FCC7 /* UIKit.framework */; };
 		70B9F3471BA8D3DC00C5FCC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B9F3461BA8D3DC00C5FCC7 /* Foundation.framework */; };
-		70B9F3491BAA422000C5FCC7 /* LeaderboardButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B9F3481BAA422000C5FCC7 /* LeaderboardButtonImage.png */; };
 		70B9F34C1BAA42FA00C5FCC7 /* LeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B9F34B1BAA42FA00C5FCC7 /* LeaderboardViewController.m */; };
 		70B9F34F1BAB876700C5FCC7 /* AlphaLeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B9F34E1BAB876700C5FCC7 /* AlphaLeadViewController.m */; };
+		70B9F3521BB0726F00C5FCC7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B9F3511BB0726F00C5FCC7 /* LoginViewController.m */; };
+		70B9F3541BB0B18E00C5FCC7 /* LeaderboardButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B9F3531BB0B18E00C5FCC7 /* LeaderboardButtonImage.png */; };
 		70DD7DDE1B72C7FB00F5835F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DDD1B72C7FB00F5835F /* main.m */; };
 		70DD7DE11B72C7FB00F5835F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE01B72C7FB00F5835F /* AppDelegate.m */; };
 		70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE31B72C7FB00F5835F /* GameScene.m */; };
@@ -116,11 +117,13 @@
 		70B9F3421BA8D3CB00C5FCC7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		70B9F3441BA8D3D500C5FCC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		70B9F3461BA8D3DC00C5FCC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		70B9F3481BAA422000C5FCC7 /* LeaderboardButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LeaderboardButtonImage.png; path = ../../../Desktop/LeaderboardButtonImage.png; sourceTree = "<group>"; };
 		70B9F34A1BAA42FA00C5FCC7 /* LeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderboardViewController.h; sourceTree = "<group>"; };
 		70B9F34B1BAA42FA00C5FCC7 /* LeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderboardViewController.m; sourceTree = "<group>"; };
 		70B9F34D1BAB876700C5FCC7 /* AlphaLeadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphaLeadViewController.h; sourceTree = "<group>"; };
 		70B9F34E1BAB876700C5FCC7 /* AlphaLeadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlphaLeadViewController.m; sourceTree = "<group>"; };
+		70B9F3501BB0726F00C5FCC7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		70B9F3511BB0726F00C5FCC7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		70B9F3531BB0B18E00C5FCC7 /* LeaderboardButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaderboardButtonImage.png; sourceTree = "<group>"; };
 		70DD7DD81B72C7FB00F5835F /* MGDProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DD7DDC1B72C7FB00F5835F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DD7DDD1B72C7FB00F5835F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -228,7 +231,7 @@
 		70DD7DDA1B72C7FB00F5835F /* MGDProject */ = {
 			isa = PBXGroup;
 			children = (
-				70B9F3481BAA422000C5FCC7 /* LeaderboardButtonImage.png */,
+				70B9F3531BB0B18E00C5FCC7 /* LeaderboardButtonImage.png */,
 				70B9F31F1BA4647D00C5FCC7 /* footsteps1.wav */,
 				70B9F31D1BA4638100C5FCC7 /* zombiesound1.wav */,
 				70B9F3181B9E85A700C5FCC7 /* zombie.atlas */,
@@ -271,6 +274,8 @@
 				70B9F34B1BAA42FA00C5FCC7 /* LeaderboardViewController.m */,
 				70B9F34D1BAB876700C5FCC7 /* AlphaLeadViewController.h */,
 				70B9F34E1BAB876700C5FCC7 /* AlphaLeadViewController.m */,
+				70B9F3501BB0726F00C5FCC7 /* LoginViewController.h */,
+				70B9F3511BB0726F00C5FCC7 /* LoginViewController.m */,
 			);
 			path = MGDProject;
 			sourceTree = "<group>";
@@ -390,8 +395,8 @@
 				70DD7E091B75A75100F5835F /* background.png in Resources */,
 				70DD7DEE1B72C7FB00F5835F /* Images.xcassets in Resources */,
 				704B7A611B8E7A71005D7791 /* HowToPlay.png in Resources */,
+				70B9F3541BB0B18E00C5FCC7 /* LeaderboardButtonImage.png in Resources */,
 				70DD7E111B76743E00F5835F /* zombiesound.wav in Resources */,
-				70B9F3491BAA422000C5FCC7 /* LeaderboardButtonImage.png in Resources */,
 				70B9F3201BA4647D00C5FCC7 /* footsteps1.wav in Resources */,
 				70DD7DE61B72C7FB00F5835F /* GameScene.sks in Resources */,
 				704B7A651B8E88C1005D7791 /* Logo.png in Resources */,
@@ -431,6 +436,7 @@
 				70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */,
 				70B9F34F1BAB876700C5FCC7 /* AlphaLeadViewController.m in Sources */,
 				70B9F31C1BA23F2F00C5FCC7 /* GameOverScene.m in Sources */,
+				70B9F3521BB0726F00C5FCC7 /* LoginViewController.m in Sources */,
 				70DD7DDE1B72C7FB00F5835F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
