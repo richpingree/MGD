@@ -323,7 +323,7 @@
                                 <rect key="frame" x="0.0" y="40" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="24I-if-qdn">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" id="24I-if-qdn">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="24I-if-qdn" id="XXr-8v-tlv">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -342,12 +342,14 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="achievementTableView" destination="cXK-UC-QN9" id="t1G-Ii-hlY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XoG-Va-psV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-452" y="1757"/>
+            <point key="canvasLocation" x="-375" y="1759"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="eYi-Vp-eHy">

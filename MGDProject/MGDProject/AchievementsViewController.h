@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface AchievementsViewController : UIViewController
+@interface AchievementsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    NSMutableArray *objectArray;
+}
+@property (weak, nonatomic) IBOutlet UITableView *achievementTableView;
+
+
 
 @end
