@@ -256,6 +256,26 @@ static const uint32_t heartCategory = 0x1 << 4;
         SKAction *change = [SKAction animateWithTextures:changeToZombie timePerFrame:0.05f];
         [dude runAction:change];
         
+        //Negative Achievement
+        if (self.score == 20) {
+            NSString *currentUser = [[PFUser currentUser] objectForKey:@"username"];
+            
+            PFObject *newAchievement = [PFObject objectWithClassName:@"Achievements"];
+            newAchievement[@"Name"] = @"Eaten By The Zombie";
+            newAchievement[@"User"] = currentUser;
+            [newAchievement saveEventually:^(BOOL succeeded, NSError *error){
+                if (succeeded) {
+                   //NSLog(@"Achievement Earned");
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achievement!" message:@"Eaten By The Zombie." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                    
+                }
+                else{
+                    //NSLog(@"Achievement Not Earned");
+                }
+            }];
+        }
+
         
         //Feature Three
         //GameOver Scene
@@ -277,6 +297,66 @@ static const uint32_t heartCategory = 0x1 << 4;
         [heart removeFromParent];
         [self addHeart:self.view.frame.size];
     }
+    
+    //Measurement/Incremental Achievement tier1
+    if (self.score == 10) {
+        NSString *currentUser = [[PFUser currentUser] objectForKey:@"username"];
+        
+        PFObject *newAchievement = [PFObject objectWithClassName:@"Achievements"];
+        newAchievement[@"Name"] = @"Collected 1 Heart";
+        newAchievement[@"User"] = currentUser;
+        [newAchievement saveEventually:^(BOOL succeeded, NSError *error){
+            if (succeeded) {
+                //NSLog(@"Achievement Earned");
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achievement!" message:@"Collected 1 Heart" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                
+            }
+            else{
+                //NSLog(@"Achievement Not Earned");
+            }
+        }];
+    }
+    //Measurement/Incremental Achievement tier2
+    if (self.score == 20) {
+        NSString *currentUser = [[PFUser currentUser] objectForKey:@"username"];
+        
+        PFObject *newAchievement = [PFObject objectWithClassName:@"Achievements"];
+        newAchievement[@"Name"] = @"Collected 2 Hearts";
+        newAchievement[@"User"] = currentUser;
+        [newAchievement saveEventually:^(BOOL succeeded, NSError *error){
+            if (succeeded) {
+                //NSLog(@"Achievement Earned");
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achievement!" message:@"Collected 2 Hearts." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                
+            }
+            else{
+                //NSLog(@"Achievement Not Earned");
+            }
+        }];
+    }
+    
+    //Measurement/Incremental Achievement tier3
+    if (self.score == 30) {
+        NSString *currentUser = [[PFUser currentUser] objectForKey:@"username"];
+        
+        PFObject *newAchievement = [PFObject objectWithClassName:@"Achievements"];
+        newAchievement[@"Name"] = @"Collected 3 Hearts";
+        newAchievement[@"User"] = currentUser;
+        [newAchievement saveEventually:^(BOOL succeeded, NSError *error){
+            if (succeeded) {
+                //NSLog(@"Achievement Earned");
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achievement!" message:@"Collected 3 Hearts." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                
+            }
+            else{
+                //NSLog(@"Achievement Not Earned");
+            }
+        }];
+    }
+
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

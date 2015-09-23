@@ -65,12 +65,15 @@
 }
 
 -(void)didMoveToView:(SKView *)view{
+    
+    NSString *currentUser = [[PFUser currentUser] objectForKey:@"username"];
     _playerNameField = [[UITextField alloc]initWithFrame:CGRectMake(lostGame.position.x, lostGame.position.y - 100, 250, 60)];
     _playerNameField.center = self.view.center;
     _playerNameField.borderStyle = UITextBorderStyleRoundedRect;
     _playerNameField.textColor = [UIColor blackColor];
     _playerNameField.font = [UIFont systemFontOfSize:30.0];
-    _playerNameField.placeholder = @"Enter Name";
+    //_playerNameField.placeholder = @"Enter Name";
+    _playerNameField.text = currentUser;
     _playerNameField.backgroundColor = [UIColor whiteColor];
     _playerNameField.autocorrectionType = UITextAutocorrectionTypeYes;
     _playerNameField.keyboardType = UIKeyboardTypeDefault;

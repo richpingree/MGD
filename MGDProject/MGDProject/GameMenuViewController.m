@@ -52,6 +52,25 @@ UIButton *InstructionBtn, *PlayBtn, *CreditsBtn;
 }
 
 - (IBAction)PlayBtn:(id)sender {
+   // NSLog(@"Button Pressed");
+    
+    //Completion Achievement
+    NSString *currentUser = [[PFUser currentUser] objectForKey:@"username"];
+    
+    PFObject *newAchievement = [PFObject objectWithClassName:@"Achievements"];
+    newAchievement[@"Name"] = @"Played First Game";
+    newAchievement[@"User"] = currentUser;
+    [newAchievement saveEventually:^(BOOL succeeded, NSError *error){
+        if (succeeded) {
+            //NSLog(@"Achievement Earned");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achievement!" message:@"First Game Played." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+
+        }
+        else{
+            //NSLog(@"Achievement Not Earned");
+        }
+    }];
 }
 
 - (IBAction)Credits:(id)sender {

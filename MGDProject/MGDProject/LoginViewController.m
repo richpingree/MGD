@@ -76,6 +76,7 @@
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if (!error) {
             NSLog(@"Sign Up Success!");
+            [self performSegueWithIdentifier:@"login" sender:self];
         }
         else{
             NSLog(@"Error on Sign Up.");
@@ -94,6 +95,7 @@
             _userNameField.text = nil;
             _passwordField.text = nil;
             _reEnterPasswordField.text =  nil;
+            [self performSegueWithIdentifier:@"login" sender:self];
             
         }
         if (error) {
@@ -101,5 +103,13 @@
             [alert show];
         }
     }];
+}
+
+- (IBAction)LogoutButton:(id)sender {
+    [PFUser logOut];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You have been Logged out!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+
 }
 @end

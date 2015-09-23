@@ -49,6 +49,8 @@
 		70B9F34F1BAB876700C5FCC7 /* AlphaLeadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B9F34E1BAB876700C5FCC7 /* AlphaLeadViewController.m */; };
 		70B9F3521BB0726F00C5FCC7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B9F3511BB0726F00C5FCC7 /* LoginViewController.m */; };
 		70B9F3541BB0B18E00C5FCC7 /* LeaderboardButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B9F3531BB0B18E00C5FCC7 /* LeaderboardButtonImage.png */; };
+		70B9F3561BB1C31D00C5FCC7 /* AchievementsButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 70B9F3551BB1C31D00C5FCC7 /* AchievementsButtonImage.png */; };
+		70B9F3591BB2212A00C5FCC7 /* AchievementsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B9F3581BB2212A00C5FCC7 /* AchievementsViewController.m */; };
 		70DD7DDE1B72C7FB00F5835F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DDD1B72C7FB00F5835F /* main.m */; };
 		70DD7DE11B72C7FB00F5835F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE01B72C7FB00F5835F /* AppDelegate.m */; };
 		70DD7DE41B72C7FB00F5835F /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 70DD7DE31B72C7FB00F5835F /* GameScene.m */; };
@@ -124,6 +126,9 @@
 		70B9F3501BB0726F00C5FCC7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		70B9F3511BB0726F00C5FCC7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		70B9F3531BB0B18E00C5FCC7 /* LeaderboardButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaderboardButtonImage.png; sourceTree = "<group>"; };
+		70B9F3551BB1C31D00C5FCC7 /* AchievementsButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AchievementsButtonImage.png; sourceTree = "<group>"; };
+		70B9F3571BB2212A00C5FCC7 /* AchievementsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsViewController.h; sourceTree = "<group>"; };
+		70B9F3581BB2212A00C5FCC7 /* AchievementsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchievementsViewController.m; sourceTree = "<group>"; };
 		70DD7DD81B72C7FB00F5835F /* MGDProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGDProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DD7DDC1B72C7FB00F5835F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DD7DDD1B72C7FB00F5835F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -231,6 +236,7 @@
 		70DD7DDA1B72C7FB00F5835F /* MGDProject */ = {
 			isa = PBXGroup;
 			children = (
+				70B9F3551BB1C31D00C5FCC7 /* AchievementsButtonImage.png */,
 				70B9F3531BB0B18E00C5FCC7 /* LeaderboardButtonImage.png */,
 				70B9F31F1BA4647D00C5FCC7 /* footsteps1.wav */,
 				70B9F31D1BA4638100C5FCC7 /* zombiesound1.wav */,
@@ -276,6 +282,8 @@
 				70B9F34E1BAB876700C5FCC7 /* AlphaLeadViewController.m */,
 				70B9F3501BB0726F00C5FCC7 /* LoginViewController.h */,
 				70B9F3511BB0726F00C5FCC7 /* LoginViewController.m */,
+				70B9F3571BB2212A00C5FCC7 /* AchievementsViewController.h */,
+				70B9F3581BB2212A00C5FCC7 /* AchievementsViewController.m */,
 			);
 			path = MGDProject;
 			sourceTree = "<group>";
@@ -386,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70B9F3561BB1C31D00C5FCC7 /* AchievementsButtonImage.png in Resources */,
 				704B7A6D1B8FC247005D7791 /* CreditInfo.png in Resources */,
 				70DD7E131B76C13800F5835F /* footsteps.wav in Resources */,
 				700155371B7D55AD002DB978 /* heartbeat.wav in Resources */,
@@ -437,6 +446,7 @@
 				70B9F34F1BAB876700C5FCC7 /* AlphaLeadViewController.m in Sources */,
 				70B9F31C1BA23F2F00C5FCC7 /* GameOverScene.m in Sources */,
 				70B9F3521BB0726F00C5FCC7 /* LoginViewController.m in Sources */,
+				70B9F3591BB2212A00C5FCC7 /* AchievementsViewController.m in Sources */,
 				70DD7DDE1B72C7FB00F5835F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
